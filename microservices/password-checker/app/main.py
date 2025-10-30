@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from app import PasswordStrengthChecker
+from app.password_checker import PasswordStrengthChecker
 import uvicorn
 
 app = FastAPI(

@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  # Микросервис проверки сложности пароля
+  password-checker:
+    build: ./password-checker
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./password-checker:/app
+
+  # Микросервис логирования действий
+  password-logger:
+    build: ./password-logger
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./password-logger:/app
+      - log_data:/app/logs
+
+volumes:
+  log_data:
